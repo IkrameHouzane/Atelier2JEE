@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_2.xsd"
+             version="3.0">
+    <persistence-unit name="mycnx" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+
+
+        <!-- Liste de toutes nos entités -->
+        <class>ma.fstt.webjpa2.model.Internaute</class>
+        <class>ma.fstt.webjpa2.model.Categorie</class>
+        <class>ma.fstt.webjpa2.model.Produit</class>
+        <class>ma.fstt.webjpa2.model.Panier</class>
+        <class>ma.fstt.webjpa2.model.LignePanier</class>
+        <class>ma.fstt.webjpa2.model.Commande</class>
+        <class>ma.fstt.webjpa2.model.LigneCommande</class>
+
+        <properties>
+            <!-- Configuration MySQL EXPLICITE -->
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/ecommerce_db?useSSL=false&amp;serverTimezone=UTC"/>
+            <property name="jakarta.persistence.jdbc.user" value="root"/>
+            <property name="jakarta.persistence.jdbc.password" value=""/>
+
+            <!-- Forcer EclipseLink à utiliser MySQL -->
+            <property name="eclipselink.target-database" value="org.eclipse.persistence.platform.database.MySQLPlatform"/>
+
+            <!-- DDL Generation - Créer les tables si elles n'existent pas -->
+            <property name="eclipselink.ddl-generation" value="create-tables"/>
+            <property name="eclipselink.ddl-generation.output-mode" value="database"/>
+
+            <!-- SQL Logging -->
+            <property name="eclipselink.logging.level" value="FINE"/>
+            <property name="eclipselink.logging.level.sql" value="FINE"/>
+            <property name="eclipselink.logging.parameters" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>
