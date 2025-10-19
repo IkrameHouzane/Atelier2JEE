@@ -129,6 +129,8 @@ Voici quelques captures d'écran de l'application en fonctionnement.
 
 ![img_5.png](img_5.png)
 
+### Historique des commandes
+![img_6.png](img_6.png)
 ---
 
 ## Auteur
